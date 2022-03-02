@@ -1,0 +1,93 @@
+/*COLORS*/
+*{
+    --white : #FFFFFF;
+    --black : #4E4E4E;
+    --gray : #707070;
+    --lightblue : #E9EDFD;
+    --purple : #6F88EF;
+    --blue : #3C5FF1;
+    --yellow : #F1E985;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+title{
+    color: var(--black);
+    font-style:normal;
+    font-variant:normal;
+    font-weight:bold;
+    font-family:BC Alphapipe;
+}
+
+h1,
+h2,
+h3,
+h4,
+title,
+p,
+ul,
+q,
+a{letter-spacing:0px;}
+
+h1,
+h2,
+h3,
+h4,
+title,
+p,
+ul,
+q,
+a{text-align:left;}
+h1,title{font-size:70px/84px;}
+h2{font-size:60px/72px;}
+h3{font-size:50px/60px;}
+h4{font-size:40px/48px;}
+
+p,
+ul,
+q{
+    color:var(--gray);
+}
+
+h1,
+h2,
+h3,
+h4,
+title,
+p,
+input[type="text"],
+textarea,
+button{opacity: 1;}
+
+ul,q{
+    font-variant:normal;
+    font-weight:normal;
+    font-size:30px/40px;
+    font-family:'Segoe UI';
+}
+ul{font-style:normal;}
+q{font-style:italic;}
+
+a{
+    text-decoration: underline;
+    font: normal normal 600 30px/40px Segoe UI;
+    color: var(--blue);
+}
+
+input[type="text"],
+textarea,
+button{background: #FFFFFF 0% 0% no-repeat padding-box;}
+
+input[type="text"],textarea{border: 1px solid #707070;border-radius: 20px;}
+
+button{
+    border-radius: 33px;
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+}
+
+
+
