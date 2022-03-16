@@ -12,11 +12,9 @@ body {
     0% {
         background-position: 0% 50%;
     }
-
     50% {
         background-position: 100% 50%;
     }
-
     100% {
         background-position: 0% 50%;
     }
@@ -27,9 +25,8 @@ body {
 }
 
 #repository {
-    width: 133px;
+    width: 100px;
     height: 133px;
-    
 }
 
 .navbar {
@@ -253,23 +250,18 @@ body {
     .dropdown {
         display: none;
     }
-
     #music_game {
         left: 10px;
     }
-
     #start_game {
         margin-top: 70px;
     }
-
     #restart_game {
         opacity: 0;
     }
-
     #pause_game {
         right: 10px;
     }
-
     #continue_game {
         right: 15px;
     }
@@ -279,7 +271,6 @@ body {
     .controls_1 {
         display: none;
     }
-
     .controls_2 {
         display: none;
     }
@@ -295,15 +286,12 @@ body {
     #rotate_piece {
         font-size: 40px;
     }
-
     #arrow-down {
         display: none;
     }
-
     #arrow-right {
         font-size: 50px;
     }
-
     #arrow-left {
         font-size: 50px;
     }

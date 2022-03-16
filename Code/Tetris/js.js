@@ -31,13 +31,17 @@ canvasRepository.style.border = '0px solid transparent';
 
 canvasStartGame.addEventListener("click", function() {
     const arenaTetris = createMatrix(12, 20);
-    const arenaRepository = createMatrix(3, 3);
+    const arenaRepository = createMatrix(3, 4);
 
     canvasTetris.style.border = 'solid .2em #fff';
     canvasRepository.style.border = 'solid .2em #fff';
     canvasStartGame.style.display = "none";
     canvasDemoImg.style.display = "none";
     canvasRestartGame.style.display = "block";
+    canvasLevels.innerText = "Level 1";
+
+    contextRepository.fillStyle = '#e3e3e3';
+    contextRepository.fillRect(0, 0, canvasRepository.width, canvasRepository.height);
 
     // Bouton pour recommencer la partie sans reload de la page 
     canvasRestartGame.addEventListener("click", function() {
@@ -45,6 +49,8 @@ canvasStartGame.addEventListener("click", function() {
         merge(player);
         dropInterval = 500;
         currentRepository = undefined;
+        contextRepository.fillStyle = '#e3e3e3';
+        contextRepository.fillRect(0, 0, canvasRepository.width, canvasRepository.height);
         repository = true;
         canvasLevels.innerText = "Level 1";
     });
@@ -135,11 +141,8 @@ canvasStartGame.addEventListener("click", function() {
         contextRepository.fillStyle = '#e3e3e3';
         contextRepository.fillRect(0, 0, canvasRepository.width, canvasRepository.height);
 
-        drawMatrixRepository(arenaRepository, {
-            x: 0,
-            y: 0
-        });
-        drawMatrixRepository(player.matrix, 0);
+        drawMatrixRepository(arenaRepository, { x: 0, y: 0 });
+        drawMatrixRepository(currentRepository, { x: 0, y: 0 });
     }
 
     // On écrit une fonction qui va dessiner en prenant en paramètre le "matrix" (c'est-à-dire les coordonnées des pièces du jeu Tetris) et l "offset" : le décalage de la pièce, là où elle va apparaître au départ dans le canvas tetris
