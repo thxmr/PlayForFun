@@ -1,5 +1,9 @@
 /*COLORS*/
-*{
+@font-face {
+    font-family: BC Alphapipe;
+    src: url(BC\ Alphapipe\ L\ Regular.ttf);
+}
+:root{
     --white : #FFFFFF;
     --black : #4E4E4E;
     --gray : #707070;
@@ -7,7 +11,19 @@
     --purple : #6F88EF;
     --blue : #3C5FF1;
     --yellow : #F1E985;
-
+    --darkerblue: #0a238a;
+    --tile2: #cbd4fb;
+    --tile4: #abbaf9;
+    --tile8: #8ba0f7;
+    --tile16: #6c86f4;
+    --tile32: #4c6cf2;
+    --tile64: #2c52f0;
+    --tile128: #113be9;
+    --tile256: #0e33ca;
+    --tile512: #0c2baa;
+    --tile1024: #0a238a;
+    --tile2048: #081b6b;
+    
 }
 
 h1,
@@ -16,9 +32,9 @@ h3,
 h4,
 title{
     color: var(--black);
-    font-style:normal;
-    font-variant:normal;
-    font-weight:bold;
+    font-style:normal !important;
+    font-variant:normal !important;
+    font-weight:bold !important;
     font-family:BC Alphapipe;
 }
 
@@ -30,7 +46,7 @@ title,
 p,
 ul,
 q,
-a{letter-spacing:0px;}
+a{letter-spacing:0px !important;}
 
 h1,
 h2,
@@ -41,10 +57,10 @@ p,
 ul,
 q,
 a{text-align:left;}
-h1,title{font-size:70px/84px;}
-h2{font-size:60px/72px;}
-h3{font-size:50px/60px;}
-h4{font-size:40px/48px;}
+h1,title{font-size:70px/84px !important;}
+h2{font-size:60px/72px !important;}
+h3{font-size:50px/60px !important;}
+h4{font-size:40px/48px !important;}
 
 p,
 ul,
@@ -60,33 +76,37 @@ title,
 p,
 input[type="text"],
 textarea,
-button{opacity: 1;}
+button{opacity: 1 !important;}
 
 ul,q{
-    font-variant:normal;
-    font-weight:normal;
-    font-size:30px/40px;
-    font-family:'Segoe UI';
+    font-variant:normal !important;
+    font-weight:normal !important;
+    font-size:30px/40px !important;
+    font-family:'Segoe UI' !important;
 }
-ul{font-style:normal;}
-q{font-style:italic;}
+ul{font-style:normal !important;}
+q{font-style:italic !important;}
 
 a{
-    text-decoration: underline;
-    font: normal normal 600 30px/40px Segoe UI;
-    color: var(--blue);
+    text-decoration: underline !important;
+    font: normal normal 600 20px/40px Segoe UI !important;
+    color: var(--blue) !important;
 }
 
 input[type="text"],
 textarea,
-button{background: #FFFFFF 0% 0% no-repeat padding-box;}
+button{background: #FFFFFF 0% 0% no-repeat padding-box !important;}
 
-input[type="text"],textarea{border: 1px solid #707070;border-radius: 20px;}
+input[type="text"],
+textarea{
+    border: 1px solid #707070 !important;
+    border-radius: 20px !important;
+}
 
 button{
-    border-radius: 33px;
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
+    border-radius: 33px !important;
+    backdrop-filter: blur(30px) !important;
+    -webkit-backdrop-filter: blur(30px) !important;
 }
 
 
