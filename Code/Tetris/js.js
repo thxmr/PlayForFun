@@ -15,6 +15,9 @@ let n = 1;
 
 const canvasTetris = document.getElementById('tetris');
 const canvasRepository = document.getElementById('repository');
+// const canvasRepositoryBefore1 = document.getElementById('repositoryBefore1');
+// const canvasRepositoryBefore2 = document.getElementById('repositoryBefore2');
+// const canvasRepositoryBefore3 = document.getElementById('repositoryBefore3');
 const canvasStartGame = document.getElementById('start_game');
 const canvasRestartGame = document.getElementById('restart_game');
 const canvasDemoImg = document.getElementById('demo-img');
@@ -25,6 +28,9 @@ const canvasScore = document.getElementById('score');
 
 const contextTetris = canvasTetris.getContext('2d');
 const contextRepository = canvasRepository.getContext('2d');
+// const contextRepositoryBefore1 = canvasRepositoryBefore1.getContext('2d');
+// const contextRepositoryBefore2 = canvasRepositoryBefore2.getContext('2d');
+// const contextRepositoryBefore3 = canvasRepositoryBefore3.getContext('2d');
 
 canvasTetris.style.border = '0px solid transparent';
 canvasRepository.style.border = '0px solid transparent';
@@ -33,15 +39,29 @@ canvasStartGame.addEventListener("click", function() {
     const arenaTetris = createMatrix(12, 20);
     const arenaRepository = createMatrix(3, 4);
 
+    // let pieceBefore1;
+    // let pieceBefore2;
+    // let pieceBefore3;
+
     canvasTetris.style.border = 'solid .2em #fff';
     canvasRepository.style.border = 'solid .2em #fff';
+    // canvasRepositoryBefore1.style.border = 'solid .2em #fff';
+    // canvasRepositoryBefore2.style.border = 'solid .2em #fff';
+    // canvasRepositoryBefore3.style.border = 'solid .2em #fff';
     canvasStartGame.style.display = "none";
     canvasDemoImg.style.display = "none";
     canvasRestartGame.style.display = "block";
     canvasLevels.innerText = "Level 1";
 
     contextRepository.fillStyle = '#e3e3e3';
+    // contextRepositoryBefore1.fillStyle = '#e3e3e3';
+    // contextRepositoryBefore2.fillStyle = '#e3e3e3';
+    // contextRepositoryBefore3.fillStyle = '#e3e3e3';
     contextRepository.fillRect(0, 0, canvasRepository.width, canvasRepository.height);
+    // contextRepositoryBefore1.fillRect(0, 0, canvasRepositoryBefore1.width, canvasRepositoryBefore1.height);
+    // contextRepositoryBefore2.fillRect(0, 0, canvasRepositoryBefore2.width, canvasRepositoryBefore2.height);
+    // contextRepositoryBefore3.fillRect(0, 0, canvasRepositoryBefore3.width, canvasRepositoryBefore3.height);
+
 
     // Bouton pour recommencer la partie sans reload de la page 
     canvasRestartGame.addEventListener("click", function() {
@@ -169,49 +189,59 @@ canvasStartGame.addEventListener("click", function() {
 
     // Fonction qui crée les différentes pièces (définit les dimensions des tetrominoes)
     function createPiece(type) {
+        let piece;
+        let gatewayPiece;
+
         if (type === 'I') {
-            return [
+            piece = [
                 [0, 1, 0, 0],
                 [0, 1, 0, 0],
                 [0, 1, 0, 0],
                 [0, 1, 0, 0],
             ];
         } else if (type === 'L') {
-            return [
+            piece = [
                 [0, 2, 0],
                 [0, 2, 0],
                 [0, 2, 2],
             ];
         } else if (type === 'J') {
-            return [
+            piece = [
                 [0, 3, 0],
                 [0, 3, 0],
                 [3, 3, 0],
             ];
         } else if (type === 'O') {
-            return [
+            piece = [
                 [4, 4],
                 [4, 4],
             ];
         } else if (type === 'Z') {
-            return [
+            piece = [
                 [5, 5, 0],
                 [0, 5, 5],
                 [0, 0, 0],
             ];
         } else if (type === 'S') {
-            return [
+            piece = [
                 [0, 6, 6],
                 [6, 6, 0],
                 [0, 0, 0],
             ];
         } else if (type === 'T') {
-            return [
+            piece = [
                 [0, 7, 0],
                 [7, 7, 7],
                 [0, 0, 0],
             ];
         }
+
+        // gatewayPiece = pieceBefore1;
+        // pieceBefore1 = pieceBefore2;
+        // pieceBefore2 = pieceBefore3;
+        // pieceBefore3 = piece;
+
+        return piece;
     };
 
     // On écrit une fonction qui va dessiner en prenant en paramètre le "matrix" (c'est-à-dire les coordonnées des pièces du jeu Tetris) et l "offset" : le décalage de la pièce, là où elle va apparaître au départ dans le canvas tetris
@@ -313,8 +343,7 @@ canvasStartGame.addEventListener("click", function() {
         const pieces = 'TJLOSZI';
         player.matrix = createPiece(pieces[pieces.length * Math.random() | 0]);
         player.pos.y = 0;
-        player.pos.x = (arenaTetris[0].length / 2 | 0) -
-            (player.matrix[0].length / 2 | 0);
+        player.pos.x = (arenaTetris[0].length / 2 | 0) - (player.matrix[0].length / 2 | 0);
 
         // Ici on active un retour en début de partie lorsque tout est rempli
         if (collide(player)) {
